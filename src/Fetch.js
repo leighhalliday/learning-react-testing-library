@@ -9,9 +9,9 @@ export default function Fetch({ url }) {
       let mounted = true;
 
       const loadData = async () => {
-        const response = await axios.get(url);
+        const result = await axios.get(url);
         if (mounted) {
-          setData(response.data);
+          setData(result.data);
         }
       };
       loadData();
@@ -24,7 +24,7 @@ export default function Fetch({ url }) {
   );
 
   if (!data) {
-    return <span data-testid="pending">Loading data...</span>;
+    return <span data-testid="loading">Loading data...</span>;
   }
 
   return <span data-testid="resolved">{data.greeting}</span>;
