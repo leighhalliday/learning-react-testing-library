@@ -14,9 +14,9 @@ it("fetches and displays data", async () => {
 
   expect(getByTestId("loading")).toHaveTextContent("Loading data...");
 
-  // const resolvedSpan = await waitForElement(() => getByTestId("resolved"));
+  const resolvedSpan = await waitForElement(() => getByTestId("resolved"));
 
-  // expect(resolvedSpan).toHaveTextContent("hello there");
-  // expect(axiosMock.get).toHaveBeenCalledTimes(1);
-  // expect(axiosMock.get).toHaveBeenCalledWith(url);
+  expect(resolvedSpan).toHaveTextContent("hello there");
+  expect(axiosMock.get).toHaveBeenCalledTimes(1);
+  expect(axiosMock.get).toHaveBeenCalledWith(url);
 });

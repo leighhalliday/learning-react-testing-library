@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function Fetch({ url }) {
-  const [data, setData] = useState(null);
-
+const useAxios = (url, setData) => {
   useEffect(
     () => {
       let mounted = true;
@@ -22,6 +20,11 @@ export default function Fetch({ url }) {
     },
     [url]
   );
+};
+
+export default function Fetch({ url }) {
+  const [data, setData] = useState(null);
+  useAxios(url, setData);
 
   if (!data) {
     return <span data-testid="loading">Loading data...</span>;
